@@ -14,7 +14,7 @@ except (IOError, OSError):
 
 setup(
     name='django-backbeat-twitter',
-    version=blocks.get_version(),
+    version=twitter.get_version(),
     description='A pluggable app for querying the twitter api.',
     long_description=long_description,
     author='Douglas Meehan',
