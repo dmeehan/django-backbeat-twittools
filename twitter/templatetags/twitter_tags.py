@@ -3,7 +3,7 @@ import twitter
 from django.template import Library, Node, TemplateSyntaxError
 from django.conf import settings
 
-register = template.Library()
+register = Library()
 
 @register.tag(name="get_friends_timeline")
 def do_get_friends_timeline(parser, token):
