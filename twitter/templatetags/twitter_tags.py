@@ -13,7 +13,7 @@ def do_get_friends_timeline(parser, token):
 	"""
     bits = token.split_contents()
 	if len(bits) != 3:
-			raise TemplateSyntaxError, "%s takes 2 arguments" % bits[0]
+	    raise TemplateSyntaxError, "%s takes 2 arguments" % bits[0]
 	if bits[1] != "as":
 		raise TemplateSyntaxError, "First argument for %s should be 'as'" % bits[0]
 	return FriendsTimelineNode(bits[2])
