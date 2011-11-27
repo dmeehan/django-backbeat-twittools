@@ -1,0 +1,7 @@
+include NOTICES.txt
+include README.txt
+include CREDITS.txt
+include LICENSE.txt
+
+recursive-include blocks *.html *.txt *.json *.html
+
