@@ -32,7 +32,7 @@ class FriendsTimelineNode(node):
                 "name": "%s" % timeline.user.name,
                 "screen_name": "%s" % timeline.user.screen_name,
                 "avatar": "%s" % timeline.user.profile_image_url,
-				"status": "%s" % timeline.text,
+				"text": "%s" % timeline.text,
 				"time": "%s" % timeline.relative_created_at,
                 "avatar": "%s" % timeline.user.profile_image_url,
 			}
