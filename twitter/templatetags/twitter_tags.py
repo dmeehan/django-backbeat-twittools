@@ -1,6 +1,6 @@
 import twitter
 
-from django import template
+from django.template import Library, Node, TemplateSyntaxError
 from django.conf import settings
 
 register = template.Library()
@@ -18,7 +18,7 @@ def do_get_friends_timeline(parser, token):
         raise TemplateSyntaxError, "First argument for %s should be 'as'" % bits[0]
     return FriendsTimelineNode(bits[2])
 
-class FriendsTimelineNode(template.node):
+class FriendsTimelineNode(Node):
     def __init__(self, context_object):
         self.context_object = context_object
     def render(self, context):
