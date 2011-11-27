@@ -18,7 +18,7 @@ def do_get_friends_timeline(parser, token):
         raise TemplateSyntaxError, "First argument for %s should be 'as'" % bits[0]
     return FriendsTimelineNode(bits[2])
 
-class FriendsTimelineNode(node):
+class FriendsTimelineNode(template.node):
     def __init__(self, context_object):
         self.context_object = context_object
     def render(self, context):
