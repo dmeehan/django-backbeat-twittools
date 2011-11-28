@@ -28,14 +28,7 @@ class FriendsTimelineNode(Node):
                               access_token_key=settings.TWITTER_ACCESS_TOKEN_KEY,
                               access_token_secret=settings.TWITTER_ACCESS_TOKEN_SECRET)
             timeline = api.GetFriendsTimeline()
-            context[self.context_object] = {
-                "name": "%s" % timeline.user.name,
-                "screen_name": "%s" % timeline.user.screen_name,
-                "avatar": "%s" % timeline.user.profile_image_url,
-                "text": "%s" % timeline.text,
-                "time": "%s" % timeline.relative_created_at,
-                "avatar": "%s" % timeline.user.profile_image_url,
-            }
+            context[self.context_object] = timeline
 
         except:
             context[self.context_object] = {
