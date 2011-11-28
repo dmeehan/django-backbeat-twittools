@@ -1,4 +1,4 @@
-# twitter/__init__.py
+# twittools/__init__.py
 
 __version_info__ = {
     'major': 0,

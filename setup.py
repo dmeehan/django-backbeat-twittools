@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-import twitter
+import twittools
 import os
 
 try:
@@ -14,7 +14,7 @@ except (IOError, OSError):
 
 setup(
     name='django-backbeat-twitter',
-    version=twitter.get_version(),
+    version=twittools.get_version(),
     description='A pluggable app for querying the twitter api.',
     long_description=long_description,
     author='Douglas Meehan',
