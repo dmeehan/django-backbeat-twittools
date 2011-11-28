@@ -32,12 +32,7 @@ class FriendsTimelineNode(Node):
 
         except:
             context[self.context_object] = {
-                "name": "Error",
-                "screen_name": "",
-                "avatar": "",
-                "status": "",
-                "time": "",
-                "avatar": "",
+                
             }
 
         return ''
