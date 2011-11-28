@@ -3,5 +3,5 @@ include README.txt
 include CREDITS.txt
 include LICENSE.txt
 
-recursive-include blocks *.html *.txt *.json *.html
+recursive-include twittools *.html *.txt *.json *.html
 

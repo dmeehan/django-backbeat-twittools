@@ -1,9 +1,20 @@
 import twitter
+import re
 
-from django.template import Library, Node, TemplateSyntaxError
 from django.conf import settings
+from django.template import Library, Node, TemplateSyntaxError
+from django.utils.safestring import mark_safe
 
 register = Library()
+
+@register.filter
+def parse_tweet(value):
+	value = re.sub(r'((mailto\:|(news|(ht|f)tp(s?))\://){1}\S+)', '<a href="\g<0>" rel="external">\g<0></a>', value)
+	value = re.sub(r'http://(yfrog|twitpic).com/(?P<id>\w+/?)', '', value)
+	value = re.sub(r'#(?P<tag>\w+)', '<a href="http://search.twitter.com/search?tag=\g<tag>" rel="external">#\g<tag></a>', value)
+	value = re.sub(r'@(?P<username>\w+)', '@<a href="http://twitter.com/\g<username>/" rel="external">\g<username></a>', value)
+
+	return mark_safe(value)
 
 @register.tag(name="get_friends_timeline")
 def do_get_friends_timeline(parser, token):
