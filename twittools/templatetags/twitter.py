@@ -9,6 +9,11 @@ register = Library()
 
 @register.filter
 def parse_tweet(value):
+    """
+        http://djangosnippets.org/snippets/2161/
+        A simple template filter for parsing tweets
+        (linking @ replies, hashtages and standard URLs)
+    """
 	value = re.sub(r'((mailto\:|(news|(ht|f)tp(s?))\://){1}\S+)', '<a href="\g<0>" rel="external">\g<0></a>', value)
 	value = re.sub(r'http://(yfrog|twitpic).com/(?P<id>\w+/?)', '', value)
 	value = re.sub(r'#(?P<tag>\w+)', '<a href="http://search.twitter.com/search?tag=\g<tag>" rel="external">#\g<tag></a>', value)
