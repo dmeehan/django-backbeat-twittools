@@ -13,14 +13,14 @@ except (IOError, OSError):
     reqs = ''
 
 setup(
-    name='django-backbeat-twitter',
+    name='django-backbeat-twittools',
     version=twittools.get_version(),
     description='A pluggable app for querying the twitter api.',
     long_description=long_description,
     author='Douglas Meehan',
     author_email='dmeehan@gmail.com',
     include_package_data=True,
-    url='http://github.com/dmeehan/django-backbeat-twitter',
+    url='http://github.com/dmeehan/django-backbeat-twittools',
     packages=find_packages(),
     classifiers=[
         'Framework :: Django',
