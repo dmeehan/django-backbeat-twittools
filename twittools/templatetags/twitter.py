@@ -14,18 +14,20 @@ def parse_tweet(value):
         A simple template filter for parsing tweets
         (linking @ replies, hashtages and standard URLs)
     """
-	value = re.sub(r'((mailto\:|(news|(ht|f)tp(s?))\://){1}\S+)', '<a href="\g<0>" rel="external">\g<0></a>', value)
-	value = re.sub(r'http://(yfrog|twitpic).com/(?P<id>\w+/?)', '', value)
-	value = re.sub(r'#(?P<tag>\w+)', '<a href="http://search.twitter.com/search?tag=\g<tag>" rel="external">#\g<tag></a>', value)
-	value = re.sub(r'@(?P<username>\w+)', '@<a href="http://twitter.com/\g<username>/" rel="external">\g<username></a>', value)
+    value = re.sub(r'((mailto\:|(news|(ht|f)tp(s?))\://){1}\S+)', '<a href="\g<0>" rel="external">\g<0></a>', value)
+    value = re.sub(r'http://(yfrog|twitpic).com/(?P<id>\w+/?)', '', value)
+    value = re.sub(r'#(?P<tag>\w+)', '<a href="http://search.twitter.com/search?tag=\g<tag>" rel="external">#\g<tag></a>', value)
+    value = re.sub(r'@(?P<username>\w+)', '@<a href="http://twitter.com/\g<username>/" rel="external">\g<username></a>', value)
 
-	return mark_safe(value)
+    return mark_safe(value)
 
 @register.tag(name="get_friends_timeline")
 def do_get_friends_timeline(parser, token):
     """
     Call this tag with:
         get_friends_timeline as <context_object>
+
+    TODO: Add caching
     """
     bits = token.split_contents()
     if len(bits) != 3:
@@ -48,7 +50,7 @@ class FriendsTimelineNode(Node):
 
         except:
             context[self.context_object] = {
-                
+
             }
 
         return ''
