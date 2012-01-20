@@ -49,6 +49,6 @@ class FriendsTimelineNode(Node):
             context[self.context_object] = timeline
 
         except:
-            context[self.context_object] = { error:"Cannot connect to Twitter",}
+            context[self.context_object] = { }
 
         return ''
