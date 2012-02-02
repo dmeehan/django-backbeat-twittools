@@ -50,6 +50,6 @@ class FriendsTimelineNode(Node):
             context[self.context_object] = timeline
 
         except:
-            messages.error(request, 'Something went wrong')
+            #messages.error(request, 'Something went wrong')
 
         return ''
