@@ -2,6 +2,7 @@ import twitter
 import re
 
 from django.conf import settings
+from django.contrib import messages
 from django.template import Library, Node, TemplateSyntaxError
 from django.utils.safestring import mark_safe
 
@@ -49,6 +50,6 @@ class FriendsTimelineNode(Node):
             context[self.context_object] = timeline
 
         except:
-
+            messages.error(request, 'Something went wrong')
 
         return ''
