@@ -50,6 +50,7 @@ class FriendsTimelineNode(Node):
             context[self.context_object] = timeline
 
         except:
-            context[self.context_object] = {}
+            timeline = { text: "No tweets", }
+            context[self.context_object] = timeline
 
         return ''
