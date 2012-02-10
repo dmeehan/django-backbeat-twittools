@@ -42,14 +42,11 @@ class FriendsTimelineNode(Node):
     def __init__(self, context_object):
         self.context_object = context_object
     def render(self, context):
-
         try:
             api = twitter.Api(consumer_key='%s' % settings.TWITTER_CONSUMER_KEY, consumer_secret='%s' % settings.TWITTER_CONSUMER_SECRET, access_token_key= '%s' % settings.TWITTER_ACCESS_TOKEN_KEY, access_token_secret='%s' % settings.TWITTER_ACCESS_TOKEN_SECRET)
-
             context[self.context_object] = api.GetFriendsTimeline()
 
         except:
-            context[self.context_object] = {
-                }
+            context[self.context_object] = {}
 
         return ''
