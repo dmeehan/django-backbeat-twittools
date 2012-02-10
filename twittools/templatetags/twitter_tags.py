@@ -46,12 +46,10 @@ class FriendsTimelineNode(Node):
         try:
             api = twitter.Api(consumer_key='%s' % settings.TWITTER_CONSUMER_KEY, consumer_secret='%s' % settings.TWITTER_CONSUMER_SECRET, access_token_key= '%s' % settings.TWITTER_ACCESS_TOKEN_KEY, access_token_secret='%s' % settings.TWITTER_ACCESS_TOKEN_SECRET)
 
-            timeline = api.GetFriendsTimeline()
-            context[self.context_object] = timeline
+            context[self.context_object] = api.GetFriendsTimeline()
 
         except:
             context[self.context_object] = {
-                "created_at": "Ack! Looks like Twitter's codes are broken!",
                 }
 
         return ''
