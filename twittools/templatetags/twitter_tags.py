@@ -51,7 +51,7 @@ class FriendsTimelineNode(Node):
 
         except:
             context[self.context_object] = {
-                "status": "Ack! Looks like Twitter's codes are broken!",
+                "text": "Ack! Looks like Twitter's codes are broken!",
                 "url": "",
                 "time": "",
                 }
