@@ -1,5 +1,3 @@
-# signals.py
-
 # -*- coding: utf-8 -*-
 #
 # Copyright (c) 2009 Arthur Furlan <arthur.furlan@gmail.com>
@@ -12,8 +10,7 @@
 # On Debian systems, you can find the full text of the license in
 # /usr/share/common-licenses/GPL-2
 
-# http://djangosnippets.org/snippets/1339/
-
+import os
 import twitter
 import urllib, urllib2
 from django.conf import settings
@@ -22,7 +19,7 @@ from django.contrib.sites.models import Site
 TWITTER_MAXLENGTH = getattr(settings, 'TWITTER_MAXLENGTH', 140)
 
 def post_to_twitter(sender, instance, *args, **kwargs):
-    """
+    """ 
     Post new saved objects to Twitter.
 
     Example:
